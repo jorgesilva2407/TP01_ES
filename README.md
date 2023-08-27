@@ -1,4 +1,4 @@
-# Markplace Online de Produtos e Serviços
+# FastTrade
 O conceito do sistema visa criar um ambiente propício para atender às necessidades dos usuários, seja em termos de produtos específicos ou serviços diversos, por meio da interação entre os próprios usuários. As principais funcionalidades do sistema compreendem:
 
 1. Perfil de Usuário Personalizável: Cada usuário tem a capacidade de personalizar o seu perfil para apresentar o seu negócio ou oferta aos demais usuários.
