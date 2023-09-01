@@ -72,7 +72,7 @@ Em resumo, o sistema visa proporcionar um espaço onde os usuários podem colabo
 - [ ] Notificar o usuário sobre atualizações de status dos pedidos.
 
 
-# Os membros da equipe são:
+## Os membros da equipe são:
 
 - Gabriel Franco Jallais - Fullstack
 - Henrique Daniel Souza - Fullstack
