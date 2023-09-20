@@ -1,0 +1,18 @@
+/* Footer styles */
+.footer {
+  background-color: black; /* Background color for the footer */
+  color: white; /* Text color for footer content, adjust as needed */
+  text-align: center;
+  padding: 20px 0; /* Adjust padding as needed */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Optional: Style the footer content (e.g., copyright text) */
+.footer p {
+  margin: 0;
+  font-size: 1rem; /* Adjust font size as needed */
+  font-weight: bold; /* Adjust font weight as needed */
+}
+  

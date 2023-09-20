@@ -1,0 +1,23 @@
+/* ImageCarousel.css */
+
+/* Style the container of the carousel */
+.carouselContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px; /* Adjust the height as needed */
+  width: 100%;
+}
+
+/* Style individual image items */
+.imageItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style images to maintain their original size */
+.imageItem img {
+  max-width: 100%;
+  max-height: 400px;
+}
