@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Navbar from 'HomeNavBar';
-import ImageCarousel from 'ImageCarousel';
-import Footer from 'Footer';
+import Navbar from './HomeNavBar';
+import ImageCarousel from './ImageCarousel';
+import Footer from './Footer';
 import UserAuthenticationPage from "./UserAuthenticationPage";
 
 
