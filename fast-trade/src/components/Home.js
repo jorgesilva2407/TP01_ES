@@ -13,7 +13,8 @@ import {
 } from "reactstrap";
 import UserAuthenticationPage from "./UserAuthenticationPage";
 
-const Home = () => {
+
+const Home = ({ userIsLoggedIn, handleLogout }) => {
   // State to store the best-selling products
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -26,6 +27,8 @@ const Home = () => {
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);
+
+ 
 
   const handleSearch = () => {
     // Filter the products based on the search query
@@ -48,14 +51,21 @@ const Home = () => {
   return (
     <div>
       <h1>FastTrade</h1>
+      
+      {/* Conditionally render the logout button when the user is logged in */}
+      {userIsLoggedIn && (
+        <button onClick={handleLogout}>Logout</button>
+      )}
+
 
       <Navbar>
         <Nav>
           <li><a href="#">Home</a></li>
-          <li><a href="#">Browse</a></li>
           <li><a href="#">Sell</a></li>
           <li><a href="#">Cart</a></li>
           <li><a href="#">Profile</a></li>
+
+          
 
           {/* Searchbox */}
           <div className="search-box">

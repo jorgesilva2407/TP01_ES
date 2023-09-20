@@ -27,11 +27,17 @@ function App() {
     setUserIsLoggedIn(true);
   };
 
+  const handleLogout = () => {
+    // Perform logout actions, such as clearing the session/token
+    // Then, set userIsLoggedIn to false
+    setUserIsLoggedIn(false);
+  };
+
   return (
     <div className="App">
       <div>
         {userIsLoggedIn ? (
-          <Home />
+          <Home userIsLoggedIn={userIsLoggedIn} handleLogout={handleLogout} />
         ) : (
           <UserAuthenticationPage onLogin={handleLogin} /> // Pass handleLogin as a prop
         )}
