@@ -1,10 +1,11 @@
 .navbarHome {
-    background-color: #00A2E8; /* Background color for the navbar */
+    background-color: #1591D7; /* Background color for the navbar */
     color: white; /* Text color for navbar items, adjust as needed */
     display: flex;
     flex-direction: row;
     align-items: center; /* Vertically center items within the navbar */
-    padding: 10px 20px;
+    padding: 16px 32px;
+    height: 64px;
 }
 
 .navbarContainer {
@@ -20,11 +21,28 @@
     color: white; 
 }
 
+.fastTrade img {
+    width: 64px;
+    height: 64px;
+}
+
 .navbar-nav {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+    align-items:center
+}
+
+.navbar-nav a {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav img {
+    align-self: center;
+    max-width: 24px;
+    max-height: 24px;
 }
 
 .nav-item {
@@ -40,4 +58,30 @@
   
 .nav-a:hover {
   color: lightgray; /* Change text color on hover */
+}
+
+.userDetails {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    align-items: left;
+    padding-left: 4px;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+}
+
+.logout {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 10px;
+    text-align: left;
+    padding: 0;
+}
+
+.bemVindo {
+    text-align: left;
 }

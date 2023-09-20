@@ -1,70 +1,48 @@
-import React, { useState, useEffect } from "react";
-import '../styles/navbar.css'
-// import { Link } from 'react-router-dom';     // If you're using React Router for navigation
+import React from "react";
+import '../styles/Navbar.css'
+import SearchBar from "./SearchBar";
+import Logo from "../icons/Logo_FT.svg";
+import Home from "../icons/icons8-casa-24.png";
+import Sell from "../icons/icons8-vender-30.png";
+import Cart from "../icons/icons8-carrinho-de-compras-24.png";
+import Profile from "../icons/icons8-usuário-homem-com-círculo-24.png";
 
-const Navbar = () =>  {
-
-    const [searchQuery, setSearchQuery] = useState('');
-    const [products, setProducts] = useState([]);
-
-    // Effect to load the best-selling products
-    useEffect(() => {
-        // Load best-selling products from the API
-        fetch("/api/products/best-sellers")
-        .then((response) => response.json())
-        .then((data) => setProducts(data));
-    }, []);
-
-    const handleSearch = () => {
-        // Filter the products based on the search query
-        const filteredProducts = products.filter((product) =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-
-        // Update the products state with the filtered list
-        setProducts(filteredProducts);
-    };
-
-    const clearSearch = () => {
-        setSearchQuery('');
-        // Fetch the initial product list from the API again
-        fetch("/api/products/best-sellers")
-        .then((response) => response.json())
-        .then((data) => setProducts(data));
-    };
-
-
+const Navbar = ({ userIsLoggedIn, handleLogout }) =>  {
   return (
     <nav className="navbarHome">
       <div className="navbarContainer">
-        <a href="/" className="fastTrade">FastTrade</a>
-        <div className="search-box">
-        <input
-            type="text"
-            placeholder="Search products..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            
-            <button onClick={clearSearch}>Clear</button>
-            <button onClick={handleSearch}>Search</button>
-        </div>
+        <a href="/" className="fastTrade">
+          <img src={Logo} alt="FastTrade" />
+        </a>
+        <SearchBar/>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a href="/home" className="nav-a">Home</a>
+            <a href="/home" className="nav-a">
+              <img src={Home} alt="Home" />
+            </a>
           </li>
           <li className="nav-item">
-            <a href="/browse" className="nav-a">Browse</a>
+            <a href="/sell" className="nav-a">
+              <img src={Sell} alt="Sell" />
+            </a>
           </li>
           <li className="nav-item">
-            <a href="/sell" className="nav-a">Sell</a>
+            <a href="/cart" className="nav-a">
+              <img src={Cart} alt="Cart" />
+            </a>
           </li>
-          <li className="nav-item">
-            <a href="/cart" className="nav-a">Cart</a>
+          <li className="nav-item user">
+            <a href="/profile" className="nav-a">
+              <img src={Profile} alt="Profile" />
+            </a>
+            {userIsLoggedIn && (
+              <div className="userDetails">
+                <span className="bemVindo">Bem vindo(a), Jane Doe!</span>
+                <button onClick={handleLogout} className="logout">Logout</button>
+              </div>
+            )}
           </li>
-          <li className="nav-item">
-            <a href="/profile" className="nav-a">Profile</a>
-          </li>
+
         </ul>
       </div>
     </nav>
