@@ -1,10 +1,10 @@
 import React from "react";
 import '../styles/Navbar.css'
 import SearchBar from "./SearchBar";
+import CartButton from "./CartButton"
 import Logo from "../icons/Logo_FT.svg";
 import Home from "../icons/icons8-casa-24.png";
 import Sell from "../icons/icons8-vender-30.png";
-import Cart from "../icons/icons8-carrinho-de-compras-24.png";
 import Profile from "../icons/icons8-usuário-homem-com-círculo-24.png";
 import { Link } from 'react-router-dom';
 
@@ -21,7 +21,6 @@ const Navbar = () =>  {
         <SearchBar/>
         <ul className="navbar-nav">
           <li className="nav-item">
-
             <Link to="/" className="nav-a">
               <img src={Home} alt="Home" />
             </Link>
@@ -31,11 +30,7 @@ const Navbar = () =>  {
               <img src={Sell} alt="Sell" />
             </Link>
           </li>
-          <li className="nav-item">
-            <Link to="/cart" className="nav-a">
-              <img src={Cart} alt="Cart" />
-            </Link>
-          </li>
+          <CartButton/>
           <li className="nav-item user">
             <Link to="/profile" className="nav-a">
               <img src={Profile} alt="Profile" />

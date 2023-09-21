@@ -4,8 +4,8 @@ import Navbar from "./HomeNavBar";
 import Footer from "./Footer";
 import ImageCarousel from "./ImageCarousel";
 
-import ItemGrid from "./ItemGrid";
 import Vasco from "../images/vasco.png";
+import Products from "./Products";
 
 let items = [
   {"id": 1, "title": "TV", "image": "tv.jpg", "price": 2500},
@@ -26,7 +26,7 @@ const Home = () => {
       <Navbar/>
       <Browse />
       <ImageCarousel />
-      <ItemGrid items={items}/>
+      <Products/>
       <Footer />
     </div>
   );
