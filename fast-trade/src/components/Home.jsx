@@ -3,7 +3,7 @@ import Browse from "./Browse";
 import Navbar from "./HomeNavBar";
 import Footer from "./Footer";
 import ImageCarousel from "./ImageCarousel";
-import UserAuthenticationPage from "./UserAuthenticationPage";
+
 import ItemGrid from "./ItemGrid";
 import Vasco from "../images/vasco.png";
 
@@ -19,11 +19,11 @@ let items = [
 ]
 
 
-const Home = ({ userIsLoggedIn, handleLogout }) => {
+const Home = () => {
   // State to store the best-selling products
   return (
     <div>
-      <Navbar userIsLoggedIn={userIsLoggedIn} handleLogout={handleLogout}/>
+      <Navbar/>
       <Browse />
       <ImageCarousel />
       <ItemGrid items={items}/>
