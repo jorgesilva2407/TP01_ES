@@ -1,12 +1,12 @@
 /* Footer styles */
 .footer {
-  background-color: black; /* Background color for the footer */
-  color: white; /* Text color for footer content, adjust as needed */
-  text-align: center;
-  padding: 20px 0; /* Adjust padding as needed */
-  position: absolute;
+  position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
+  padding: 10px 0; /* Add padding for spacing inside the footer */
+  text-align: center;
+  backgorund-color: black;
 }
 
 /* Optional: Style the footer content (e.g., copyright text) */

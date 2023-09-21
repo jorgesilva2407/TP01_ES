@@ -10,22 +10,26 @@ const CategoryNavbar = () => {
   ];
 
   return (
-    <nav className="category-navbar">
-      <DropdownMenu title="Categories" items={categories} />
-      <div className="navbarContainer">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a href="/ofertasdodia" className="nav-a">
+    <nav className="browse-category-navbar">
+      <div className="browse-navbarContainer">
+        <ul className="browse-navbar-nav">
+          <li className="dropdown">
+            <div className="browse-nav-dropdown">
+              <DropdownMenu title="Categorias" items={categories} />
+            </div>
+          </li>
+          <li className="browse-nav-item">
+            <a href="/ofertasdodia" className="browse-nav-a">
               Ofertas do Dia
             </a>
           </li>
-          <li className="nav-item">
-            <a href="/maisprocurados" className="nav-a">
+          <li className="browse-nav-item">
+            <a href="/maisprocurados" className="browse-nav-a">
               Mais Procurados
             </a>
           </li>
-          <li className="nav-item">
-            <a href="/recomendacoes" className="nav-a">
+          <li className="browse-nav-item">
+            <a href="/recomendacoes" className="browse-nav-a">
               Recomendações para você!
             </a>
           </li>

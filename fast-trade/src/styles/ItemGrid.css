@@ -1,0 +1,41 @@
+/* ItemGrid.css */
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 4fr)); /* Responsive grid with minimum item width of 250px */
+    gap: 85px; /* Spacing between grid items */
+    max-width: 1700px;
+    padding: 42px;
+    height: 80vh;
+}
+
+.item-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    width: 300px;
+    height: 360px;
+}
+
+.item-card:hover {
+    transform: scale(1.05); /* Enlarge the card on hover */
+}
+
+.item-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.item-title {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.item-price {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 1.2rem;
+}
+  

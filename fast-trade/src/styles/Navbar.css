@@ -71,6 +71,8 @@
 .user {
     display: flex;
     flex-direction: row;
+    font-family: Roboto;
+    font-weight: 400;
 }
 
 .logout {
@@ -84,4 +86,5 @@
 
 .bemVindo {
     text-align: left;
+    font-size: 12px;
 }

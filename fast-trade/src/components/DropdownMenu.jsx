@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Hamburguer from '../icons/icons8-cardápio-50(1).png';
+import '../styles/Dropdown.css';
 
 const DropdownMenu = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,8 +16,8 @@ const DropdownMenu = ({ title, items }) => {
   return (
     <div className="dropdown-menu" onBlur={closeDropdown} tabIndex="0">
       <button className="dropdown-toggle" onClick={toggleDropdown}>
-        {title}
-        <i className={`fas ${isOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`} />
+        <img src={Hamburguer} alt="Categorias" />
+        <span>{title}</span>
       </button>
       {isOpen && (
         <ul className="dropdown-list">
