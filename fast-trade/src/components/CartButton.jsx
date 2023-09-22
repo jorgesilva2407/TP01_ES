@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import "../styles/CartButton.css"
 import Cart from "../icons/icons8-carrinho-de-compras-24.png";
-import { Link } from 'react-router-dom';
+import AppContext from '../context/AppContext';
 
 function CartButton(){
 
+    const {cartItems, isCartVisible, setIsCartVisible} = useContext(AppContext);
+
     return(
-        <form type="button" class="nav-item">
-            <Link to="/cart" className="nav-a">
-              <img src={Cart} alt="Cart" />
-            </Link>
-            <span className="cart-status">1</span>
+        <form type="button"
+        class="nav-item"
+        onClick={() => setIsCartVisible(!isCartVisible)}
+        >
+            <img src={Cart} alt="Cart" />
+            {cartItems.length > 0 &&
+            <span className="cart-status">{cartItems.length}</span>}
         </form>
     )
 
