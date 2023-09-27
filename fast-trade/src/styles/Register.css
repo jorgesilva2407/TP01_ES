@@ -1,0 +1,70 @@
+/* Register.css */
+
+.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2196F3; /* Blue background color */
+  }
+  
+  .register-box {
+    background-color: #fff; /* White content background color */
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: max-content;
+  }
+  
+  h2 {
+    color: #333; /* Dark text color */
+  }
+  
+  .input-section {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #333; /* Dark text color */
+  }
+  
+  .input-box {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .text-danger {
+    color: red; /* Red text color for error messages */
+  }
+  
+  .register-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #2196F3; /* Blue button background color */
+    color: #fff; /* White button text color */
+  }
+  
+  .register-button:hover {
+    background-color: #1976D2; /* Darker blue on hover */
+  }
+  
+  p {
+    color: #333; /* Dark text color */
+  }
+  
+  a {
+    text-decoration: none;
+    color: #2196F3; /* Blue link color */
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }

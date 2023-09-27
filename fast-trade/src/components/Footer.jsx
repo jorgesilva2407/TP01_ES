@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <p>&copy; {new Date().getFullYear()} Your App</p>
+        <p>&copy; {new Date().getFullYear()} FastTrade</p>
       </div>
     </footer>
   );

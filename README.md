@@ -32,7 +32,7 @@ Em resumo, o sistema visa proporcionar um espaço onde os usuários podem colabo
 
 ###  0: Configuração Inicial:
 
-- [ ] Criar uma estrutura de projeto.
+- [x] Criar uma estrutura de projeto.
 - [ ] Configurar o banco de dados.
 
 ###  1: Autenticação de Usuário
@@ -46,11 +46,11 @@ Em resumo, o sistema visa proporcionar um espaço onde os usuários podem colabo
 
 ### 2: Compras de Produtos
 
-- [ ] Criar uma página de listagem de produtos.
-- [ ] Exibir a lista de produtos disponíveis no banco de dados.
+- [x] Criar uma página de listagem de produtos.
+- [x] Exibir a lista de produtos disponíveis no banco de dados.
 - [ ] Adicionar a opção de adicionar produtos ao carrinho na página de listagem de produtos.
-- [ ] Implementar a funcionalidade de adicionar produtos ao carrinho.
-- [ ] Criar uma página de carrinho de compras.
+- [x] Implementar a funcionalidade de adicionar produtos ao carrinho.
+- [x] Criar uma página de carrinho de compras.
 - [ ] Implementar a funcionalidade de finalizar o pedido.
 - [ ] Deduzir os produtos do estoque após a compra ser finalizada.
 
