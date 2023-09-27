@@ -57,7 +57,7 @@ Em resumo, o sistema visa proporcionar um espaço onde os usuários podem colabo
 ### 3: Chat com Vendedor
 
 - [ ] Criar uma interface de chat na página do produto.
-- [ ] Implementar a funcionalidade de enviar mensagens ao vendedor.
+- [x] Implementar a funcionalidade de enviar mensagens ao vendedor.
 
 ### 4: Anúncio de Produtos
 
