@@ -15,9 +15,9 @@ const Navbar = () =>  {
       <div className="navbarContainer">
 
         
-        <Link href="/" className="fastTrade">
+        <a href="/" className="fastTrade">
           <img src={Logo} alt="FastTrade" />
-        </Link>
+        </a>
 
         <SearchBar/>
 
