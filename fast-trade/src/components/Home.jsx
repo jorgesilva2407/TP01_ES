@@ -3,8 +3,7 @@ import Browse from "./Browse";
 import Navbar from "./HomeNavBar";
 import Footer from "./Footer";
 import ImageCarousel from "./ImageCarousel";
-
-import Vasco from "../images/vasco.png";
+import Banner from '../images/Group 3BlackFriday (3).png'
 import Products from "./Products";
 import Provider from "../context/Provider";
 import Cart from "./Cart";
@@ -15,7 +14,8 @@ const Home = () => {
     <Provider>
       <Navbar/>
       <Browse />
-      <ImageCarousel />
+      {/* <ImageCarousel /> */}
+      <img src={Banner} alt="Black Friday" width={'100%'} z-index={3}/>
       <Products/>
       <Cart/>
       <Footer />

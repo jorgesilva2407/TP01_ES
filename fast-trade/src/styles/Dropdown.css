@@ -23,13 +23,14 @@
 }
 
 .dropdown-list {
-    z-index: 10;
-    color: black;
-    background-color: white;
-    /* width: 200px; */
+    background-color: black;
 }
 
 .dropdown-list a {
-    color: #36B7FF;
     font-size: 16px;
+    color: black;
 }
+
+/* .dropdown-item a {
+    color: black
+} */
