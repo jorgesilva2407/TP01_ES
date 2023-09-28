@@ -1,7 +1,7 @@
 import {React, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Validation from "./RegisterValidation";
-
+import axios from 'axios';
 import '../styles/Register.css';
 
 
@@ -19,9 +19,20 @@ function Register(){
     setValues( prev => ({...prev, [event.target.name]: [event.target.value]}))
   }
 
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
+
+    if(errors.email === "" && errors.name === "" && errors.password === "") {
+      axios.post('http://localhost:3301/register', values)
+      .then( res => {
+          navigate('/login');
+      })
+      .catch(err => console.log(err));
+    }
+
   }
 
   return(
