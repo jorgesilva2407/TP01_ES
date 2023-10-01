@@ -39,6 +39,10 @@
     align-items: center;
 }
 
+.navbar-nav a:hover {
+    text-decoration: none;
+}
+
 .navbar-nav img {
     align-self: center;
     max-width: 24px;

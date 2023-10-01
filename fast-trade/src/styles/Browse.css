@@ -33,6 +33,10 @@
     color: white;
 }
 
+.browse-navbar-nav a:hover {
+    text-decoration: none;
+}
+
 .browse-navbar-nav img {
     align-self: center;
     max-width: 24px;
