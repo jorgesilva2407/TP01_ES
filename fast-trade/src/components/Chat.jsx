@@ -7,7 +7,7 @@ function Chat() {
     if (!localStorage.getItem('username')) return <Login />
 
     return (
-        <div>
+        <div className='chat-styles'>
             <h3>Adicionar Header</h3>
             <ChatEngine
                 height="90vh"
