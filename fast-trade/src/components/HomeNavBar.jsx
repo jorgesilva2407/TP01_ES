@@ -5,6 +5,7 @@ import CartButton from "./CartButton"
 import Logo from "../icons/Logo_FT.svg";
 import Home from "../icons/icons8-casa-24.png";
 import Sell from "../icons/icons8-vender-30.png";
+import Chat from "../icons/icons8-balão-de-fala-com-pontos-24.png";
 import Profile from "../icons/icons8-usuário-homem-com-círculo-24.png";
 import { Link } from 'react-router-dom';
 
@@ -35,6 +36,12 @@ const Navbar = () =>  {
           </li>
           
           <CartButton/>
+
+          <li className="nav-item chat">
+            <Link to="/chat" className="nav-a">
+              <img src={Chat} alt="Chat" />
+            </Link>
+          </li>
 
           <li className="nav-item user">
             <Link to="/profile" className="nav-a">
