@@ -2,8 +2,9 @@ import { useState } from 'react';
 import './App.css';
 import Home from "./components/Home";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Signup from './components/SignUp';
-import Signin from './components/SignIn';
+import Register from './components/Register';
+import Login from './components/Login';
+import UserAccount from './components/UserAccount';
 import Chat from './components/Chat';
 
 function App() {
@@ -16,8 +17,9 @@ function App() {
         <Routes>
 
           <Route path='/' element={<Home/>} />
-          <Route path='signup' element={<Signup/>} />
-          <Route path="/signin" element={<Signin/>} />
+          <Route path='/register' element={<Register/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/minhaconta" element={<UserAccount/>} />
           <Route path="/chat" element={<Chat/>} />
 
         </Routes>

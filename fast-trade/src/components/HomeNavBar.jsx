@@ -15,22 +15,27 @@ const Navbar = () =>  {
       <div className="navbarContainer">
 
         
-        <Link href="/" className="fastTrade">
+        <a href="/" className="fastTrade">
           <img src={Logo} alt="FastTrade" />
-        </Link>
+        </a>
+
         <SearchBar/>
+
         <ul className="navbar-nav">
           <li className="nav-item">
             <Link to="/" className="nav-a">
               <img src={Home} alt="Home" />
             </Link>
           </li>
+
           <li className="nav-item">
             <Link to="/sell" className="nav-a">
               <img src={Sell} alt="Sell" />
             </Link>
           </li>
+          
           <CartButton/>
+
           <li className="nav-item user">
             <Link to="/profile" className="nav-a">
               <img src={Profile} alt="Profile" />
@@ -39,15 +44,15 @@ const Navbar = () =>  {
 
           {/* SingUp */}
           <li className="nav-item">
-            <Link to="/signup" className="nav-a"> {/* Button to navigate to the signup page */}
-              Signup
+            <Link to="/register" className="nav-a"> {/* Button to navigate to the signup page */}
+              Register
             </Link>
           </li>
 
           {/* SignIn */}
           <li className="nav-item">
-            <Link to="/signin" className="nav-a"> {/* Button to navigate to the signin page */}
-              Signin
+            <Link to="/login" className="nav-a"> {/* Button to navigate to the signin page */}
+              Login
             </Link>
           </li>
 

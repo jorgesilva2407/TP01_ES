@@ -37,10 +37,10 @@ Em resumo, o sistema visa proporcionar um espaço onde os usuários podem colabo
 
 ###  1: Autenticação de Usuário
 
-- [ ] Criar uma página de registro com formulário.
+- [x] Criar uma página de registro com formulário.
 - [ ] Implementar a funcionalidade de criação de conta.
-- [ ] Adicionar validações para garantir a integridade dos dados.
-- [ ] Criar uma página de login com formulário.
+- [x] Adicionar validações para garantir a integridade dos dados.
+- [x] Criar uma página de login com formulário.
 - [ ] Implementar a funcionalidade de login.
 - [ ] Implementar a funcionalidade de logout.
 
@@ -57,7 +57,7 @@ Em resumo, o sistema visa proporcionar um espaço onde os usuários podem colabo
 ### 3: Chat com Vendedor
 
 - [ ] Criar uma interface de chat na página do produto.
-- [ ] Implementar a funcionalidade de enviar mensagens ao vendedor.
+- [x] Implementar a funcionalidade de enviar mensagens ao vendedor.
 
 ### 4: Anúncio de Produtos
 

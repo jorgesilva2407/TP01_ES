@@ -6,7 +6,9 @@ const CategoryNavbar = () => {
   const categories = [
     { label: 'Electronics', link: '/products/electronics' },
     { label: 'Clothing', link: '/products/clothing' },
-    // Add more categories here
+    { label: 'Clothing', link: '/products/clothing' },
+    { label: 'Clothing', link: '/products/clothing' },
+    { label: 'Clothing', link: '/products/clothing' },
   ];
 
   return (
