@@ -17,12 +17,12 @@ function ProductCard({data}) {
             className="card__image"/>
 
             <div className="card__infos">
+                <h2 className="card__title">{title}</h2>
                 <h2 className="card__price">{price.toLocaleString('pt-br', {
                     style: 'currency',
                     currency: 'BRL',
 
                 })}</h2>
-                <h2 className="card__title">{title}</h2>
             </div>
 
             <button type='button'

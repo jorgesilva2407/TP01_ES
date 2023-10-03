@@ -17,7 +17,7 @@ const DropdownMenu = ({ title, items }) => {
     <div className="dropdown-menu" onBlur={closeDropdown} tabIndex="0">
       <button className="dropdown-toggle" onClick={toggleDropdown}>
         <img src={Hamburguer} alt="Categorias" />
-        <span>{title}</span>
+        <span className="dropdown-title">{title}</span>
       </button>
       {isOpen && (
         <ul className="dropdown-list">

@@ -1,8 +1,17 @@
-const fetchProducts = async (query) => {
-    const response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${query}`);
-    const data = await response.json();
+const fetchProducts = async (query, itemsPerPage, pageNumber) => {
+  const offset = (pageNumber - 1) * itemsPerPage; // Calculate the offset based on page number
+  const response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${query}&limit=${itemsPerPage}&offset=${offset}`);
+  const data = await response.json();
+
+  return data.results;
+};
+
+const fetchProductsByCategory = async (query, itemsPerPage, pageNumber) => {
+  const offset = (pageNumber - 1) * itemsPerPage; // Calculate the offset based on page number
+  const response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${query}&limit=${itemsPerPage}&offset=${offset}`);
+  const data = await response.json();
+
+  return data.results;
+};
   
-    return data.results;
-  };
-  
-  export default fetchProducts;
+export {fetchProducts, fetchProductsByCategory} ;
