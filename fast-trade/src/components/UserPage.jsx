@@ -1,77 +1,53 @@
 import React, { useState } from 'react';
+import '../styles/UserPage.css';
+import DefaultUserBanner from "../images/UserBanner2.png";
+import EditIcon from "../icons/icons8-editar-32.png";
+import Products from './Products';
 
-function UserPage() {
-  const [selectedMenuItem, setSelectedMenuItem] = useState('Meus Pedidos');
+const UserPage = () => {
+  const user = {
+    name: 'John Doe',
+    username: 'johndoe',
+    email: 'johndoe@example.com',
+    profilePicture: 'https://t4.ftcdn.net/jpg/03/49/49/79/360_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.webp', // Replace with the URL to the user's profile picture
+    storeDescription: "Bem-vindo à Loja de John Doe no Nosso Marketplace! Aqui, você encontrará uma coleção \
+                       diversificada de produtos artesanais feitos com paixão e habilidade. Desde pinturas e \
+                       joias feitas à mão até decorações para o lar, cada item conta uma história única. \
+                       Comprometidos com a sustentabilidade, muitos de nossos produtos são feitos a partir \
+                       de materiais reciclados, refletindo nossa preocupação com o meio ambiente. Oferecemos \
+                       personalização para criar peças verdadeiramente exclusivas e nosso excepcional atendimento \
+                       ao cliente garante uma experiência de compra perfeita. Descubra o mundo encantador do \
+                       artesanato autêntico na Loja de John Doe, onde cada compra é uma celebração da criatividade e autenticidade."
 
-  const handleMenuItemClick = (menuItem) => {
-    setSelectedMenuItem(menuItem);
   };
 
   return (
     <div className="user-page">
-      <div className="side-menu">
-        <ul>
-          <li
-            onClick={() => handleMenuItemClick('Meus Pedidos')}
-            className={selectedMenuItem === 'Meus Pedidos' ? 'active' : ''}
-          >
-            Meus Pedidos
-          </li>
-          <li
-            onClick={() => handleMenuItemClick('Informações da Conta')}
-            className={selectedMenuItem === 'Informações da Conta' ? 'active' : ''}
-          >
-            Informações da Conta
-          </li>
-          <li
-            onClick={() => handleMenuItemClick('Formas de Pagamento')}
-            className={selectedMenuItem === 'Formas de Pagamento' ? 'active' : ''}
-          >
-            Formas de Pagamento
-          </li>
-          <li
-            onClick={() => handleMenuItemClick('Endereços')}
-            className={selectedMenuItem === 'Endereços' ? 'active' : ''}
-          >
-            Endereços
-          </li>
-          <li
-            onClick={() => handleMenuItemClick('Settings')}
-            className={selectedMenuItem === 'Settings' ? 'active' : ''}
-          >
-            Settings
-          </li>
-        </ul>
+      <div className="banner">
+        <img src={DefaultUserBanner} />
+        <div className="profile-picture" style={{ backgroundImage: `url(${user.profilePicture})` }}></div>
       </div>
-      <div className="content">
-        {selectedMenuItem === 'Meus Pedidos' && (
-          <div>
-            Meus Pedidos Content
-          </div>
-        )}
-        {selectedMenuItem === 'Informações da Conta' && (
-          <div>
-            Informações da Conta Content
-          </div>
-        )}
-        {selectedMenuItem === 'Formas de Pagamento' && (
-          <div>
-            Formas de Pagamento Content
-          </div>
-        )}
-        {selectedMenuItem === 'Endereços' && (
-          <div>
-            Endereços Content
-          </div>
-        )}
-        {selectedMenuItem === 'Settings' && (
-          <div>
-            Settings Content
-          </div>
-        )}
+      <div className='presentation-info'>
+        <div>
+          <h2 className='user-name'>{user.name}</h2>
+          <span className='user-username'>@{user.username}</span>
+        </div>
+        <button className='editInfo-buttom'>
+          <img src={EditIcon}/>Edit Profile
+        </button>
+      </div>
+      <div className="user-info">
+        <div className="user-description">
+          <h2 className="store-name">Sobre {user.name}</h2>
+          <p className="store-description">{user.storeDescription}</p>
+        </div>
+        <div className="user-store">
+          <h2 className="store-name">Produtos de {user.name}</h2>
+          <Products query={'random'} itemsPerPage={15} pageNumber={1} byCategory={false}/>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default UserPage;
