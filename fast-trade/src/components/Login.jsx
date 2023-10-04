@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import Validation from './LoginValidation';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import '../styles/Login.css';
 
@@ -9,12 +9,14 @@ function Login() {
   const [values, setValues] = useState({
     email: '',
     password: ''
-  })
+  });
 
-  const [errors, setErrors] = useState({})
+  const navigate = useNavigate();
+
+  const [errors, setErrors] = useState({});
 
   const handleInput = (event) => {
-    setValues(prev => ({ ...prev, [event.target.name]: [event.target.value] }))
+    setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
   }
 
   const handleSubmit =  async (event) => {
@@ -29,12 +31,31 @@ function Login() {
     }
 
     try {
-      axios.get('https://api.chatengine.io/chats', {headers: authObject});
+
+      const response = await axios.post('http://localhost:3301/login', values);
+
+      if (response.data.success) {
+        // Authentication successful
+        console.log("User authenticated successfully");
+
+        // para o uso do chat
+        //axios.get('https://api.chatengine.io/chats', {headers: authObject});
       
-      localStorage.setItem('username', values.email);
-      localStorage.setItem('password', values.password);
+        localStorage.setItem('email', values.email);
+        localStorage.setItem('name', response.data.name);
+        localStorage.setItem('password', values.password);
       
-      window.location.reload();
+        // window.location.reload();
+
+        navigate('/');
+
+      } else {
+        // Authentication failed
+        console.log("User authentication failed");
+        setErrors({ authentication: response.data.message });
+      }
+
+
     } catch (error) {
       setErrors('Falha na validação de usuário')
     }
@@ -42,7 +63,6 @@ function Login() {
   }
 
   return (
-
     <div className="login-page">
       <div className="login-box">
         <h2>Login</h2>
@@ -67,14 +87,13 @@ function Login() {
             <button className="login-button">Registre-se</button>
           </Link>
 
+          {errors.authentication && (
+            <div className="text-danger">{errors.authentication}</div>
+          )}
         </form>
-
-
       </div>
     </div>
-
-  )
-
+  );
 }
 
-export default Login
+export default Login;

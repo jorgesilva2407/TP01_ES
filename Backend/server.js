@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const userRoutes = require("./src/routes/userRoutes");
+const mysql = require("mysql");
+
 
 const app = express();
 const port = 3301;
@@ -8,8 +9,71 @@ const port = 3301;
 app.use(cors());
 app.use(express.json());
 
-// Rotas
-app.use("/api/users", userRoutes);
+
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "tpes123",
+  database: "fasttrade",
+});
+
+db.connect((err) => {
+  if (err) {
+    console.error("MySQL connection error:", err);
+  } else {
+    console.log("Connected to MySQL database");
+  }
+});
+
+app.post("/register", (req, res) => {
+
+  console.log('Requisição de registro recebida');
+
+  const sql = "INSERT INTO users (`name`, `email`, `password`) VALUES (?, ?, ?)";
+  const values = [req.body.name, req.body.email, req.body.password];
+
+  db.query(sql, values, (err, data) => {
+    if (err) {
+      console.error("Erro ao registrar usuário:", err);
+      return res.status(500).json({ error: "Erro interno do servidor" });
+    }
+
+    console.log("Usuário registrado com sucesso");
+    return res.status(200).json({ message: "Usuário registrado com sucesso" });
+  });
+});
+
+
+app.post("/login", (req, res) => {
+
+  console.log('Requisição de login recebida');
+
+  const sql = "SELECT * FROM users WHERE `email` = ? AND `password` = ?";
+  const values = [req.body.email, req.body.password];
+
+  db.query(sql, values, (err, data) => {
+    if (err) {
+      console.error("Erro ao logar:", err);
+      return res.status(500).json({ error: "Erro interno do servidor" });
+    }
+
+    if (data.length > 0) {
+      // User with provided credentials found
+      const name = data[0].name;
+      console.log("Usuário autenticado com sucesso");
+      return res.status(200).json({ success: true, message: "User authenticated successfully", name });
+   
+    } else {
+      // No user found with provided credentials
+      console.log("Credenciais inválidas");
+      return res.status(401).json({ error: "Credenciais inválidas" });
+    }
+  });
+});
+
+
+
+
 
 app.listen(port, () => {
   console.log(`Servidor está rodando na porta ${port}`);
