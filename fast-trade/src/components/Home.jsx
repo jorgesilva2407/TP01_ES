@@ -10,6 +10,20 @@ import Cart from "./Cart";
 
 const Home = () => {
   // State to store the best-selling products
+
+  
+  // useEffect(() => {
+  //   // Retrieve the username from local storage
+  //   const storedUsername = localStorage.getItem('name');
+
+  //   // Check if the username is set and log it
+  //   if (storedUsername) {
+  //     console.log('name in local storage:', storedUsername);
+  //   } else {
+  //     console.log('name not found in local storage');
+  //   }
+  // }, []);
+
   return (
     <Provider>
       <Navbar/>
