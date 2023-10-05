@@ -27,19 +27,27 @@ function Register() {
   
     if (errors.email === "" && errors.name === "" && errors.password === "") {
 
+      const username = values.name;
+      const secret = values.password;
+      const email = values.email;
+      const first_name = '';
+      const last_name = '';
+
       try {
 
          // register the user in the API
-         axios.post(
+        const r = await axios.post(
           "https://api.chatengine.io/users/",
-          {'username': values.email, 'secret': values.password}, // Body object
-          {'headers': {'Private-Key': 'b997bb5c-23c9-47bb-8b69-722c4a8d304b'}} // Headers object
-        );
+          {username, secret, email, first_name, last_name}, // Body object
+          {'headers': {"Private-Key": "b997bb5c-23c9-47bb-8b69-722c4a8d304b"}} // Headers object
+        ).then((response) =>{
+           console.log(response)})
+        .catch((error) => console.log("Sign up error", error));
         
-
+      
         // Step 1: Register the user in the backend
         await axios.post('http://localhost:3301/register', values)
-        .then( res => {
+        .then( response => {
           // If everything is successful, navigate to the login page
           navigate('/login');
         })

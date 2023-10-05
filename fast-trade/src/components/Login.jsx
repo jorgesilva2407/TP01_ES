@@ -44,6 +44,7 @@ function Login() {
         localStorage.setItem('email', values.email);
         localStorage.setItem('name', response.data.name);
         localStorage.setItem('password', values.password);
+        localStorage.setItem('user_id', response.data.user_id)
       
         // window.location.reload();
 

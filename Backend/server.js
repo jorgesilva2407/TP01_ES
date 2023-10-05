@@ -60,8 +60,9 @@ app.post("/login", (req, res) => {
     if (data.length > 0) {
       // User with provided credentials found
       const name = data[0].name;
+      const user_id = data[0].user_id;
       console.log("Usuário autenticado com sucesso");
-      return res.status(200).json({ success: true, message: "User authenticated successfully", name });
+      return res.status(200).json({ success: true, message: "User authenticated successfully", name , user_id});
    
     } else {
       // No user found with provided credentials
@@ -71,7 +72,24 @@ app.post("/login", (req, res) => {
   });
 });
 
+app.post('/announce-product', (req, res) => {
 
+  console.log('Requisição de anúncio recebida');
+
+  const sql = "INSERT INTO products (`quantity`, `product_owner_id`,`product_name`, `description`, `price`, `image`) VALUES (?, ?, ?, ?, ?, ?)";
+  const values = [req.body.quantity, req.body.product_owner_id, req.body.product_name, req.body.description, req.body.price, req.body.image];
+
+  db.query(sql, values, (err, data) => {
+    if (err) {
+      console.error("Erro ao adicionar produto:", err);
+      return res.status(500).json({ error: "Erro interno do servidor" });
+    }
+
+    console.log("Produto adicionado com sucesso");
+    return res.status(200).json({ message: "Produto adicionado com sucesso" });
+  });
+
+});
 
 
 
