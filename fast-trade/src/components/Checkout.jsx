@@ -43,9 +43,9 @@ const Checkout = () => {
   };
 
   return (
-    <div>
+    <div className="checkout-container">
       <Header />
-      <div className="checkout-container">
+      <div>
         <h2>Finalização de Compra</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">

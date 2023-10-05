@@ -52,19 +52,31 @@
 .nav-item {
     margin-left: 20px; /* Adjust spacing between navbar items */
     position: relative;
+    border: transparent;
+    background-color: transparent;
+    cursor: pointer;
 }
+
 .nav-a {
     text-decoration: none;
+    border: transparent;
+    background-color: transparent;
     color: white; /* Text color for navbar links */
     font-weight: bold; /* Adjust font weight as needed */
     transition: color 0.2s ease; /* Add a smooth color transition effect */
     position: relative;
+    cursor: pointer;
   }
 
 
 .nav-a:hover {
   color: lightgray; /* Change text color on hover */
 }
+
+.button {
+    margin-left: 20px; /* Adjust spacing between navbar items */
+    position: relative;
+  }
 
 .userDetails {
     display: flex;

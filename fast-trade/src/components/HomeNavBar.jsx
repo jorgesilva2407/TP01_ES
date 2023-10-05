@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar";
 import CartButton from "./CartButton"
 import Logo from "../icons/Logo_FT.svg";
 import Home from "../icons/icons8-casa-24.png";
+import Cart from "../icons/icons8-carrinho-de-compras-24.png";
 import Sell from "../icons/icons8-vender-24.png";
 import Chat from "../icons/icons8-balão-de-fala-com-pontos-24.png";
 import Profile from "../icons/icons8-usuário-homem-com-círculo-24.png";
