@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect} from "react";
 import propTypes from 'prop-types';
 import "../styles/CartItem.css"
 import AppContext from "../context/AppContext";
@@ -10,7 +10,7 @@ function CartItem({data}){
     const handleRemoveItem = () => {
         const updateItems = cartItems.filter((item) => item.id !== id);
         setCartItems(updateItems);
-    }
+    };
 
     return (
         <section className="cart-item">
@@ -22,7 +22,6 @@ function CartItem({data}){
                     currency: 'BRL',
 
                 })}</h3>
-
                 <button type="button"
                 className="button__remove-item"
                 onClick={handleRemoveItem}
