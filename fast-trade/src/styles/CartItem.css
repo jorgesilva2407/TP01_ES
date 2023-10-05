@@ -39,6 +39,8 @@
     position: absolute;
     top: 0;
     right: 0;
+    max-width: 19px;
+    max-height: 19px;
     color: #d83232;
     font-size: 1.4rem;
     border: none;
