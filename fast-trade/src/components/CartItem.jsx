@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect} from "react";
 import propTypes from 'prop-types';
 import "../styles/CartItem.css"
+import Remove from "../icons/icons8-remove-24.png"
 import AppContext from "../context/AppContext";
 
 function CartItem({data}){
@@ -25,7 +26,7 @@ function CartItem({data}){
                 <button type="button"
                 className="button__remove-item"
                 onClick={handleRemoveItem}
-                >-</button>
+                ><img src={Remove} className="button__remove-item"/></button>
             </div>
         </section>
     );

@@ -1,0 +1,9 @@
+.headerHome {
+    background-color: #1591D7; /* Background color for the navbar */
+    color: white; /* Text color for navbar items, adjust as needed */
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Vertically center items within the navbar */
+    padding: 16px 32px;
+    height: 6vh;
+}

@@ -1,8 +1,10 @@
 import React, { useContext, useState, useEffect} from "react";
 
 import "../styles/Cart.css"
+import Checkout from "./Checkout";
 import CartItem from "./CartItem";
 import AppContext from "../context/AppContext";
+import { Link } from "react-router-dom";
 
 function Cart(){
     const {cartItems, isCartVisible, setIsCartVisible } = useContext(AppContext);
@@ -18,9 +20,6 @@ function Cart(){
         setIsCartVisible(!isCartVisible);
     };
 
-    const handleBuy = () => {
-        window.location.href = "/test";
-    };
 
     return (
         <section className={`cart ${isCartVisible ? 'cart--active' : ''}`}>
@@ -35,12 +34,12 @@ function Cart(){
                     currency: 'BRL',
             })}</div>
             <div>
-                <button type="button" className="button__cart" disabled={isButtonDisabled}
-                    onClick={handleBuy}>
+                <Link to="/checkout">
+                <button type="button" className="button__cart" disabled={isButtonDisabled}>
                     <i className="bi bi-cart-fill"></i>
                     <span>Comprar</span>
                 </button>
-
+                </Link>
             </div>
 
 
