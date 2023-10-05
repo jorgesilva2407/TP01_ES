@@ -48,10 +48,10 @@ Em resumo, o sistema visa proporcionar um espaço onde os usuários podem colabo
 
 - [x] Criar uma página de listagem de produtos.
 - [x] Exibir a lista de produtos disponíveis no banco de dados.
-- [ ] Adicionar a opção de adicionar produtos ao carrinho na página de listagem de produtos.
+- [x] Adicionar a opção de adicionar produtos ao carrinho na página de listagem de produtos.
 - [x] Implementar a funcionalidade de adicionar produtos ao carrinho.
 - [x] Criar uma página de carrinho de compras.
-- [ ] Implementar a funcionalidade de finalizar o pedido.
+- [x] Implementar a funcionalidade de finalizar o pedido.
 - [ ] Deduzir os produtos do estoque após a compra ser finalizada.
 
 ### 3: Chat com Vendedor
