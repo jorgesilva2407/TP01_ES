@@ -18,6 +18,7 @@ function ProductCard({data}) {
 
             <div className="card__infos">
                 <h2 className="card__title">{title}</h2>
+                <h2 className="card__seller">Vendido por FastTrade</h2>
                 <h2 className="card__price">{price.toLocaleString('pt-br', {
                     style: 'currency',
                     currency: 'BRL',

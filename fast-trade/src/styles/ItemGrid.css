@@ -5,11 +5,10 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid with minimum item width of 250px */
     gap: 64px;
     max-width: 100%;
-    padding: 50px 80px;
+    padding: 20px 60px;
     overflow-y: hidden;
     justify-content: space-around; /* Center the grid items horizontally */
     align-content: start; /* Align items to the top of each row */
-    background-color: #f9f9f9;
 }
 
 .item-card {

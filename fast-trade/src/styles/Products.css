@@ -1,9 +1,101 @@
-.container {
-  background-color: #f9f9f9;
+.side-menu {
+  width: 250px;
+  float: left;
+  padding: 20px 0px 20px 20px;
+  margin-top: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.side-menu > h2, h3, label {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  margin: 8px 0;
+}
+
+.side-menu-filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.filter-icon { 
+  max-width: 24px;
+  padding-right: 6px;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+/* CSS for the products container */
+.products-container {
+  height: 2600px;
+  padding: 20px;
+  margin: 0px 80px 80px 80px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.price-input {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  margin: 4px 0;
+  padding-left: 12px;
+}
+
+.price-input > input {
+  width: 100%;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  background-color: #f0f0f0;
+}
+
+/* CSS for the price range inputs and sorting options */
+input[type="number"] {
+  width: 50%;
+  margin-top: 5px;
+  margin-left: 8px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* CSS for the radio buttons */
+label input[type="radio"] {
+  margin-right: 5px;
+}
+
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.categories-list > label {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
 }
 
 .pagination {
   padding-bottom: 30px;
+  padding-top: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
