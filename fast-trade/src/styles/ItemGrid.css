@@ -18,8 +18,8 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
-    width: 270px;
-    height: 300px;
+    width: 27%;
+    height: 30%;
 }
 
 .item-card:hover {
@@ -41,4 +41,7 @@
     color: #007bff;
     font-size: 1.2rem;
 }
-  
+
+.container {
+    height: auto;
+}

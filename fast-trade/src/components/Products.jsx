@@ -19,26 +19,38 @@ const Products = ({ itemsPerPage }) => {
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(1000000);
     const [categories, setCategories] = useState([]);
-    const [category, setCategory] = useState("MLB5672");
+    const [category, setCategory] = useState("MLB1051");
     const [categoryDict, setCategoryDict] = useState([]);
     const [sortBy, setSortBy] = useState("relevance");
-    const [sortingMethods, setSortingMethods] = useState([]);
-
+    const [isEmpty, setIsEmpty] = useState(true);
+    // const [sortingMethods, setSortingMethods] = useState([]);
+    const sortingMethods = [{id: "relevance", name: "Mais relevantes"},
+                            {id: "price_asc", name: "Menor preço"},
+                            {id: "price_desc", name: "Maior preço"}]
     useEffect(() => {
         setLoading(true);
         
         const fetchData = async () => {
             try {
-                let response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${category}&&sort=${sortBy}`).then(response => response.json());
-                const data = response;
-                setSortingMethods(data.available_sorts);
-                const productsResults = data.results;
-                const filteredProducts = productsResults.filter(product => product.price >= minPrice && product.price <= maxPrice);
-                    // const sortedProducts = filteredProducts.sort();
-                setProductsSize(filteredProducts.length);
-                const slicedProducts = filteredProducts.slice(0 + (pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage);
-                setProducts(slicedProducts);
-
+                let response;
+                let productsResults;
+                if (sortBy != "price_desc") {
+                    response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${category}&&sort=${sortBy}`).then(response => response.json());
+                    productsResults = response.results;
+                }
+                else {
+                    response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${category}`).then(response => response.json());
+                    productsResults = response.results.sort((a, b) => b.price - a.price);
+                }
+                if(productsResults) {
+                    const filteredProducts = productsResults.filter(product => product.price >= minPrice && product.price <= maxPrice);
+                    setProductsSize(filteredProducts.length);
+                    const slicedProducts = filteredProducts.slice(0 + (pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage);
+                    setProducts(slicedProducts);
+                }
+                else {
+                    setIsEmpty(true);
+                }
                 response = await fetch('https://api.mercadolibre.com/sites/MLB/categories')
                                 .then(response =>  response.json())
                                 .catch(error => {
@@ -116,7 +128,6 @@ const Products = ({ itemsPerPage }) => {
                         <h3>Ordenar por</h3>
                     </div>
                     <select onChange={handleSortChange}>
-                        <option value="">Relevância</option>
                         {sortingMethods.map((sort, index) => (
                             <option key={index} value={sort.name} onChange={handleSortChange}>
                                 {sort.name}
@@ -151,27 +162,25 @@ const Products = ({ itemsPerPage }) => {
                     </div>
                 </div>
             </div>
-            {loading && <Loading />}
-            {!loading && (
-                <div className="container">
-                    <div className="item-grid">
-                        {products.map((product) => (
-                            <ProductCard key={product.id} data={product} />
-                        ))}
-                    </div>
-                    {!loading && (
-                        <div className="pagination">
-                            <button className="arrow" onClick={() => handlePageChange(pageNumber - 1)} disabled={pageNumber === 1}>
-                                <img src={PreviousArrow} alt="Voltar" />
-                            </button>
-                            {renderPaginationItems()}
-                            <button className="arrow" onClick={() => handlePageChange(pageNumber + 1)} disabled={products.length < itemsPerPage}>
-                                <img src={NextArrow} alt="Próximo" />
-                            </button>
-                        </div>
-                    )}
+            <div className="container">
+                <div className="item-grid">
+                    {loading && products.map((product) => <Loading />)}
+                    {!loading && products.map((product) => (
+                        <ProductCard key={product.id} data={product} />
+                    ))}
                 </div>
-            )}
+                {!loading && (
+                    <div className="pagination">
+                        <button className="arrow" onClick={() => handlePageChange(pageNumber - 1)} disabled={pageNumber === 1}>
+                            <img src={PreviousArrow} alt="Voltar" />
+                        </button>
+                        {renderPaginationItems()}
+                        <button className="arrow" onClick={() => handlePageChange(pageNumber + 1)} disabled={products.length < itemsPerPage}>
+                            <img src={NextArrow} alt="Próximo" />
+                        </button>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
