@@ -13,13 +13,18 @@ function Validation(values) {
     if (values.quantity === "") {
       error.quantity = "A quantidade é obrigatória.";
     }
-    
     else if(parseInt(values.quantity, 10) <= 0) {
       error.quantity = "Quantidade inválida.";
     }
-    
     else {
       error.quantity = ""
+    }
+
+    if (values.category === "") {
+      error.category = "O nome do produto é obrigatório.";
+    }
+    else {
+      error.category = ""
     }
   
     if (values.description === "") {

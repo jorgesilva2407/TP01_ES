@@ -8,6 +8,8 @@ import Validation from "./VendaValidation";
 import '../styles/Venda.css';
 
 function Venda() {
+
+
   const [values, setValues] = useState({
     
     quantity: '',
@@ -15,9 +17,47 @@ function Venda() {
     product_name: '',
     description: '',
     price: '',
-    image: null
+    image: null,
+    category: ''
 
   });
+
+  
+const categories = [
+  "Acessórios para Veículos",
+  "Agro",
+  "Alimentos e Bebidas",
+  "Animais",
+  "Antiguidades e Coleções",
+  "Arte, Papelaria e Armarinho",
+  "Bebês",
+  "Beleza e Cuidado Pessoal",
+  "Brinquedos e Hobbies",
+  "Calçados, Roupas e Bolsas",
+  "Câmeras e Acessórios",
+  "Carros, Motos e Outros",
+  "Casa, Móveis e Decoração",
+  "Celulares e Telefones",
+  "Construção",
+  "Eletrodomésticos",
+  "Eletrônicos, Áudio e Vídeo",
+  "Esportes e Fitness",
+  "Ferramentas",
+  "Festas e Lembrancinhas",
+  "Games",
+  "Imóveis",
+  "Indústria e Comércio",
+  "Informática",
+  "Ingressos",
+  "Instrumentos Musicais",
+  "Joias e Relógios",
+  "Livros, Revistas e Comics",
+  "Música, Filmes e Seriados",
+  "Saúde",
+  "Serviços",
+  "Mais Categorias"
+];
+
 
   values.product_owner_id = localStorage.getItem("user_id")
 
@@ -60,7 +100,7 @@ function Venda() {
           console.error("Error announcing product:", err);
         });
 
-        navigate('/');
+        navigate('/minhaconta');
     }
     else
       console.log("Erro ao adicionar produto")
@@ -84,6 +124,16 @@ function Venda() {
             {errors.quantity && <span className="text-danger">{errors.quantity}</span>}
           </div>
 
+          <div className="input-section">
+            <label htmlFor="category"><strong>Categoria</strong></label>
+              <select className="input-box" name="category" onChange={handleInput}>
+                <option value="">Selecione a categoria</option>
+                {categories.map((category, index) => (
+                  <option key={index} value={category}>{category}</option>
+                ))}
+              </select>
+            {errors.category && <span className="text-danger">{errors.category}</span>}
+          </div>
                  
 
           <div className="input-section">
@@ -107,7 +157,7 @@ function Venda() {
 
 
         
-          <button className="venda-button" type="submit">Anunciar Produto</button>
+          <button className="submit-button" type="submit">Anunciar Produto</button>
         
         
         </form>

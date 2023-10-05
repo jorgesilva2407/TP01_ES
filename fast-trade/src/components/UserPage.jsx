@@ -3,12 +3,16 @@ import '../styles/UserPage.css';
 import DefaultUserBanner from "../images/UserBanner2.png";
 import EditIcon from "../icons/icons8-editar-32.png";
 import Products from './Products';
+import {Link} from "react-router-dom";
 
 const UserPage = () => {
+
+
+
   const user = {
-    name: 'John Doe',
+    name: localStorage.getItem("name"),
     username: 'johndoe',
-    email: 'johndoe@example.com',
+    email: localStorage.getItem("email"),
     profilePicture: 'https://t4.ftcdn.net/jpg/03/49/49/79/360_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.webp', // Replace with the URL to the user's profile picture
     storeDescription: "Bem-vindo à Loja de John Doe no Nosso Marketplace! Aqui, você encontrará uma coleção \
                        diversificada de produtos artesanais feitos com paixão e habilidade. Desde pinturas e \
@@ -35,6 +39,9 @@ const UserPage = () => {
         <button className='editInfo-buttom'>
           <img src={EditIcon}/>Edit Profile
         </button>
+      <Link to="/venda">
+        <button className='add-procut-button'>Adicionar produto</button>
+      </Link>
       </div>
       <div className="user-info">
         <div className="user-description">

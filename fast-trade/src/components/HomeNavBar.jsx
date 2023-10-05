@@ -7,15 +7,28 @@ import Home from "../icons/icons8-casa-24.png";
 import Sell from "../icons/icons8-vender-24.png";
 import Chat from "../icons/icons8-balão-de-fala-com-pontos-24.png";
 import Profile from "../icons/icons8-usuário-homem-com-círculo-24.png";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 
 const Navbar = () =>  {
+
+  // Check if the user is logged in
+
+ 
+  const isLoggedIn = localStorage.getItem('user_id');
+  const navigate = useNavigate();
+  const handleButtonClick = (path) => {
+    if(!isLoggedIn){
+      navigate('/login');
+    }
+    else{
+      navigate(path);
+    }
+  };
+
   return (
     <nav className="navbarHome">
       <div className="navbarContainer">
-
-        
         <a href="/" className="fastTrade">
           <img src={Logo} alt="FastTrade" />
         </a>
@@ -24,45 +37,54 @@ const Navbar = () =>  {
 
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link to="/" className="nav-a">
-              <img src={Home} alt="Home" />
+            <Link to='/'>
+              <button className="nav-a">
+                <img src={Home} alt="Home" />
+              </button>
             </Link>
           </li>
 
           <li className="nav-item">
-            <Link to="/venda" className="nav-a">
+            <button onClick={() => handleButtonClick('/minhaconta')} className="nav-a">
               <img src={Sell} alt="Sell" />
-            </Link>
+            </button>
           </li>
-          
+
           <CartButton/>
 
           <li className="nav-item chat">
-            <Link to="/chat" className="nav-a">
+            <button onClick={() => handleButtonClick('/chat')} className="nav-a">
               <img src={Chat} alt="Chat" />
-            </Link>
+            </button>
           </li>
 
           <li className="nav-item user">
-            <Link to="/profile" className="nav-a">
+            <button onClick={() => handleButtonClick('/profile')} className="nav-a">
               <img src={Profile} alt="Profile" />
-            </Link>
+            </button>
           </li>
 
-          {/* SingUp */}
-          <li className="nav-item">
-            <Link to="/register" className="nav-a"> {/* Button to navigate to the signup page */}
-              Register
-            </Link>
-          </li>
-
-          {/* SignIn */}
-          <li className="nav-item">
-            <Link to="/login" className="nav-a"> {/* Button to navigate to the signin page */}
-              Login
-            </Link>
-          </li>
-
+          {isLoggedIn ? (
+            <li className="nav-item">
+              <button onClick={() => {
+                localStorage.removeItem('user_id');
+                navigate('/')
+              }} className="nav-a">Logout</button>
+            </li>
+          ) : (
+            <>
+              <li className="nav-item">
+                <Link to="/register" className="nav-a">
+                  Register
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/login" className="nav-a">
+                  Login
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </nav>
