@@ -39,7 +39,7 @@ function Login() {
         console.log("User authenticated successfully");
 
         // para o uso do chat
-        //axios.get('https://api.chatengine.io/chats', {headers: authObject});
+        // axios.get('https://api.chatengine.io/chats', {headers: authObject});
       
         localStorage.setItem('email', values.email);
         localStorage.setItem('name', response.data.name);
@@ -48,6 +48,13 @@ function Login() {
       
         // window.location.reload();
 
+        // --------------------------Comente tudo menos isso para testar o chat--------------------------------
+
+        // localStorage.setItem('email', values.email);
+        // localStorage.setItem('name', values.email);
+        // localStorage.setItem('password', values.password);
+        
+        // -----------------------------------------------------------------------------------------------------
         navigate('/');
 
       } else {

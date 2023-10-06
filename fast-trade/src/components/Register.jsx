@@ -24,7 +24,7 @@ function Register() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrors(Validation(values));
-  
+
     if (errors.email === "" && errors.name === "" && errors.password === "") {
 
       const username = values.name;
@@ -34,26 +34,37 @@ function Register() {
       const last_name = '';
 
       try {
+        fetch('https://api.chatengine.io/users/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            ...{
+              'Private-Key': 'b997bb5c-23c9-47bb-8b69-722c4a8d304b',
+            },
+          },
+          body: JSON.stringify({
+            username: username[0],
+            secret: secret[0],
+            email: email[0]
+          }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data); // You can handle the response data here
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
 
-         // register the user in the API
-        const r = await axios.post(
-          "https://api.chatengine.io/users/",
-          {username, secret, email, first_name, last_name}, // Body object
-          {'headers': {"Private-Key": "b997bb5c-23c9-47bb-8b69-722c4a8d304b"}} // Headers object
-        ).then((response) =>{
-           console.log(response)})
-        .catch((error) => console.log("Sign up error", error));
-        
-      
         // Step 1: Register the user in the backend
         await axios.post('http://localhost:3301/register', values)
-        .then( response => {
-          // If everything is successful, navigate to the login page
-          navigate('/login');
-        })
-        .catch(err => {
-          console.log(err)
-        });
+          .then(response => {
+            // If everything is successful, navigate to the login page
+            navigate('/login');
+          })
+          .catch(err => {
+            console.log(err)
+          });
 
       } catch (error) {
         if (error.response && error.response.status === 500) {
@@ -68,7 +79,7 @@ function Register() {
       }
     }
   };
-  
+
 
   return (
     <div className="register-page">

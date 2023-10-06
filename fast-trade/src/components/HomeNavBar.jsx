@@ -54,7 +54,7 @@ const Navbar = () =>  {
           <CartButton/>
 
           <li className="nav-item chat">
-            <button onClick={() => handleButtonClick('/chat')} className="nav-a">
+            <button onClick={() => navigate('/chat')} className="nav-a">
               <img src={Chat} alt="Chat" />
             </button>
           </li>
