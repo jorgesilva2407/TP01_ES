@@ -4,6 +4,7 @@ import Instagram from "../icons/icons8-instagram-50.png";
 import Facebook from "../icons/icons8-facebook-50.png";
 import Twitter from "../icons/icons8-twitter-50.png";
 import Linkedin from "../icons/icons8-linkedin-50.png";
+import Vasco from "../icons/icons8-vasco.png";
 
 const Footer = () => {
   return (
@@ -82,7 +83,7 @@ const Footer = () => {
               Email: <a> fast.trade.ufmg@gmail.com</a>
             </li>
             <li>
-              Tel: <a>(31) 99999-9999</a>
+              Tel: <a>(21) 2176-7373</a>
             </li>
             <li className='midiasSociais'>
               Mídias Sociais:
@@ -99,6 +100,9 @@ const Footer = () => {
                 <a href="https://www.linkedin.com/company/vasco-da-gama-saf/?originalSubdomain=br" target='_blank'>
                   <img src={Linkedin} alt="linkedin" className='logo-midia'/>
                 </a>
+                <a href="https://vasco.com.br/" target='_blank'>
+                  <img src={Vasco} alt="Vasco" className='logo-midia'/>
+                </a>
               </div>
             </li>
           </ul>
@@ -106,7 +110,7 @@ const Footer = () => {
       </div>
       <div className="newsletter">
         <h3>Inscreva-se para nossa Newsletter</h3>
-          <input type="email" placeholder="exemplo@email.com.br"/>
+          <input type="email" placeholder="calabouco@crvascodagama.com"/>
         <button>Subscribe</button>
       </div>
     </div>

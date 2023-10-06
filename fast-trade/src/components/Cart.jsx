@@ -29,15 +29,15 @@ function Cart(){
             <div className="close-button" id="close-cart" onClick={toggleCart}>
                 x
             </div>
-            <div className="cart-resume">Total: {totalPrice.toLocaleString('pt-br', {
+            <div>
+                <div className="cart-resume">Total: {totalPrice.toLocaleString('pt-br', {
                     style: 'currency',
                     currency: 'BRL',
-            })}</div>
-            <div>
+                })}</div>
                 <Link to="/checkout">
                 <button type="button" className="button__cart" disabled={isButtonDisabled}>
                     <i className="bi bi-cart-fill"></i>
-                    <span>Comprar</span>
+                    <span>Finalizar Compra</span>
                 </button>
                 </Link>
             </div>
