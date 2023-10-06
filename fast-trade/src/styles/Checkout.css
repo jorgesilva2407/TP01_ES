@@ -58,3 +58,18 @@
   cursor: pointer;
   transition: 0.3s;
 }
+
+.price {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  right: 10px;
+  bottom: 70px;
+  align-self: center;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.checkout_items {
+  flex-grow: 1;
+  overflow: auto;
+}
