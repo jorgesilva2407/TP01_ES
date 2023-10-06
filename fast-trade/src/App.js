@@ -9,7 +9,7 @@ import Chat from './components/Chat';
 
 import Venda from './components/Venda';
 import Checkout from './components/Checkout';
-
+import OrderConfirmation from './components/OrderConfirmation';
 
 function App() {
 
@@ -30,7 +30,7 @@ function App() {
           
 
           <Route path='/checkout' element={<Checkout/>}/>
-
+          <Route path='/order-confirmation' element={<OrderConfirmation/>}/>
 
         </Routes>
       </Router>
