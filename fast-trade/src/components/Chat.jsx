@@ -14,7 +14,7 @@ function Chat() {
                 <ChatEngine
                     height="90vh"
                     projectID="d392b8ec-9c28-4780-a064-94a5ad330a52"
-                    userName={localStorage.getItem('name')}
+                    userName={localStorage.getItem('email')}
                     userSecret={localStorage.getItem('password')}>
                 </ChatEngine>
             </div>
