@@ -53,7 +53,29 @@ function Register() {
             console.log(data); // You can handle the response data here
           })
           .catch(error => {
-            console.error('Error:', error);
+            console.error('Erro criar usuário no chat:', error);
+          });
+
+        fetch('https://api.chatengine.io/chats/207647/people/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            ...{
+              'Project-ID': 'd392b8ec-9c28-4780-a064-94a5ad330a52',
+              'User-Name': 'Fast Trade Dev',
+              'User-Secret': '123123'
+            }
+          },
+          body: JSON.stringify({
+            username: username[0]
+          })
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data); // You can handle the response data here
+          })
+          .catch(error => {
+            console.error('Erro ao adicionar ao chat:', error);
           });
 
         // Step 1: Register the user in the backend
