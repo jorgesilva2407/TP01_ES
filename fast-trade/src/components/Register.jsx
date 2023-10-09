@@ -127,7 +127,9 @@ function Register() {
             {errors.password && <span className="text-danger">{errors.password}</span>}
           </div>
 
-          <button className="register-button" type="submit">Criar conta</button>
+          <Link to="/login">
+            <button className="register-button" type="submit">Criar conta</button>
+          </Link>
 
           <p>Já tem uma conta? </p>
 
