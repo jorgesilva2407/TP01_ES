@@ -19,17 +19,19 @@ const DropdownMenu = ({ title, items }) => {
         <img src={Hamburguer} alt="Categorias" />
         <span className="dropdown-title">{title}</span>
       </button>
-      {isOpen && (
-        <ul className="dropdown-list">
-          {items.map((item, index) => (
-            <li key={index} className="dropdown-item">
-              <a href={item.link} className="dropdown-link">
-                {item.label}
-              </a>
-            </li>
-          ))}
+      <div className="dropdown-list-container">
+        {isOpen && (
+          <ul className="dropdown-list">
+            {items.map((item, index) => (
+              <li key={index} className="dropdown-item">
+                <a href={item.link} className="dropdown-link">
+                  {item.label}
+                </a>
+              </li>
+            ))}
         </ul>
       )}
+      </div>
     </div>
   );
 };

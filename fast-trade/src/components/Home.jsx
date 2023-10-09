@@ -31,7 +31,7 @@ const Home = () => {
       <Browse />
       {/* <ImageCarousel /> */}
       <img src={Banner} alt="Black Friday" width={'100%'} z-index={3}/>
-      {/* <CategoriesCard /> */}
+      <CategoriesCard />
       <Products itemsPerPage={16} pageNumber={1} byCategory={true}/>
       <Cart/>
       <Footer />

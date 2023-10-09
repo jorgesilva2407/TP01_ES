@@ -17,7 +17,7 @@
     width: max-content;
   }
   
-  h2 {
+  .register-box > h2 {
     color: #333; /* Dark text color */
   }
   
@@ -25,7 +25,7 @@
     margin-bottom: 20px;
   }
   
-  label {
+  .register-box > label {
     font-weight: bold;
     color: #333; /* Dark text color */
   }
@@ -56,15 +56,15 @@
     background-color: #1976D2; /* Darker blue on hover */
   }
   
-  p {
+  .register-box > p {
     color: #333; /* Dark text color */
   }
   
-  a {
+  .register-box > a {
     text-decoration: none;
     color: #2196F3; /* Blue link color */
   }
   
-  a:hover {
+  .register-box > a:hover {
     text-decoration: underline;
   }
