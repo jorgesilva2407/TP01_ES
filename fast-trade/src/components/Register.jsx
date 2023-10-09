@@ -56,7 +56,7 @@ function Register() {
             console.error('Erro criar usuário no chat:', error);
           });
 
-        fetch('https://api.chatengine.io/chats/207647/people/', {
+        fetch('https://api.chatengine.io/chats/207662/people/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
