@@ -15,10 +15,6 @@
     height: 40px;
 }
 
-.dropdown-menu {
-    width: 100%;
-}
-
 .dropdown-toggle img {
     padding-right: 8px;
 }
@@ -26,20 +22,27 @@
 .dropdown-list {
     list-style: none;
     text-align: left;
+    column-count: 5;
+    column-gap: 80px;
 }
 
 .dropdown-list-container {
-    background-color: white;
-    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 300px;
+    width: fit-content;
+    padding: 20px;
     border-radius: 0px 0px 10px 10px;
+    color: black;
+    background-color: white;
     transition: transform 400ms ease;
-    transform: translatey(1%);
+    transform: translatey(0px);
     z-index: 5;
-    padding-left: 20px;
 }
 
 .dropdown-item {
     padding: 4px;
+    cursor: pointer;
 }
 
 .dropdown-item > a {

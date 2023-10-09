@@ -1,21 +1,18 @@
 import React, { useState, useContext } from 'react';
 import '../styles/SearchBar.css';
 import Browse from "../icons/icons8-pesquisar-escuro.png"
-import { fetchProducts } from '../api/fetchProducts';
 import AppContext from '../context/AppContext';
 
 function SearchBar() {
 
   const [searchValue, setSearchValue] = useState('');
 
-  const { setProducts, setLoading } = useContext(AppContext);
+  const { setCategory, setQuery } = useContext(AppContext);
 
   const handleSearch = async (event) => {
     event.preventDefault();
-    setLoading(true);
-    const products = await fetchProducts(searchValue, 16, 1);
-    setProducts(products);
-    setLoading(false);
+    setQuery(searchValue);
+    setCategory("");
     setSearchValue('');
   }
 

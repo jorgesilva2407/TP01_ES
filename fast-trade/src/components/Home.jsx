@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Browse from "./Browse";
 import Navbar from "./HomeNavBar";
 import Footer from "./Footer";
 import CategoriesCard from "./CategoriesCard"
-import ImageCarousel from "./ImageCarousel";
 import Banner from '../images/Group 3BlackFriday (3).png'
 import Products from "./Products";
 import Provider from "../context/Provider";
 import Cart from "./Cart";
 
 const Home = () => {
-  // State to store the best-selling products
-
   
   useEffect(() => {
     // Retrieve the username from local storage

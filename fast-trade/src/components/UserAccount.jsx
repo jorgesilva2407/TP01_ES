@@ -6,13 +6,13 @@ import Provider from "../context/Provider";
 import UserPage from "./UserPage";
 import Cart from "./Cart";
 
-const Home = () => {
+const Home = ({user}) => {
   // State to store the best-selling products
   return (
     <Provider>
       <Navbar/>
       <Browse />
-      <UserPage />
+      <UserPage user={user}/>
       <Cart/>
       <Footer />
     </Provider>

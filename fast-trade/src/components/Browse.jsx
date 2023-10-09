@@ -1,39 +1,32 @@
 import React from 'react';
 import DropdownMenu from './DropdownMenu';
+import {Link} from 'react-scroll';
 import '../styles/Browse.css';
 
 const CategoryNavbar = () => {
-  const categories = [
-    { label: 'Electronics', link: '/products/electronics' },
-    { label: 'Clothing', link: '/products/clothing' },
-    { label: 'Clothing', link: '/products/clothing' },
-    { label: 'Clothing', link: '/products/clothing' },
-    { label: 'Clothing', link: '/products/clothing' },
-  ];
-
   return (
     <nav className="browse-category-navbar">
       <div className="browse-navbarContainer">
         <ul className="browse-navbar-nav">
           <li className="dropdown">
             <div className="browse-nav-dropdown">
-              <DropdownMenu title="Categorias" items={categories} />
+              <DropdownMenu />
             </div>
           </li>
           <li className="browse-nav-item">
-            <a href="/ofertasdodia" className="browse-nav-a">
+            <Link to="products" spy={true} smooth={true} offset={50} duration={500} className="browse-nav-a">
               Ofertas do Dia
-            </a>
+            </Link>
           </li>
           <li className="browse-nav-item">
-            <a href="/maisprocurados" className="browse-nav-a">
+            <Link to="products" spy={true} smooth={true} offset={50} duration={500} className="browse-nav-a">
               Mais Procurados
-            </a>
+            </Link>
           </li>
           <li className="browse-nav-item">
-            <a href="/recomendacoes" className="browse-nav-a">
+            <Link to="products" spy={true} smooth={true} offset={50} duration={500} className="browse-nav-a">
               Recomendações para você!
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

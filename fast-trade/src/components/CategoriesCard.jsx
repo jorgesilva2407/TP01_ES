@@ -1,30 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import Esportes from '../images/Esportes_card.png'
 import Livros from '../images/Livros_card.png'
 import Eletronicos from '../images/Eletronicos_card.png'
+import {Link} from 'react-scroll';
+import AppContext from '../context/AppContext';
 import '../styles/CategoriesCard.css';
 
 const CategoriesCard = () => {
+    const { setCategory } = useContext(AppContext);
 
-  return (
+    return (
       <div className="categories-card-container">
         <div className="categories-card">
-            <a className="categories-link">
+            <Link to="products" spy={true} smooth={true} offset={50} duration={500} className="categories-link" onClick={() => setCategory("MLB1276")}>
                 <img className="categories-img" src={Esportes}/>
-            </a>
+            </Link>
         </div>
         <div className="categories-card">
-            <a className="categories-link">
+            <Link to="products" spy={true} smooth={true} offset={50} duration={500} className="categories-link" onClick={() => setCategory("MLB1196")}>
                 <img className="categories-img" src={Livros}/>
-            </a>
+            </Link>
         </div>
         <div className="categories-card">
-            <a className="categories-link">
+            <Link to="products" spy={true} smooth={true} offset={50} duration={500} className="categories-link" onClick={() => setCategory("MLB1000")}>
                 <img className="categories-img" src={Eletronicos}/>
-            </a>
+            </Link>
         </div>
       </div>
-  );
+    );
 };
 
 export default CategoriesCard;
