@@ -4,8 +4,7 @@ import DefaultUserBanner from "../images/UserBanner2.png";
 import EditIcon from "../icons/icons8-editar-32.png";
 import Products from './Products';
 
-const UserPage = (userId) => {
-
+const UserPage = ( {userId} ) => {
   function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
@@ -23,8 +22,9 @@ const UserPage = (userId) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`http://localhost:3301/user/${userId.userId}`).then(response => response.json());
+        const response = await fetch(`http://localhost:3301/user/${userId}`).then(response => response.json());
         const userData = response.user[0];
+        // console.log(response);
         setUser(userData); // Update the user state with the fetched data
       } catch (error) {
         console.error('Error fetching user data:', error);
