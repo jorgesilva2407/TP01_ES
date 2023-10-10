@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import '../styles/UserPage.css';
 import DefaultUserBanner from "../images/UserBanner2.png";
 import EditIcon from "../icons/icons8-editar-32.png";
 import Products from './Products';
 import {Link} from "react-router-dom";
+import axios from 'axios';
+
 
 const UserPage = () => {
 
@@ -25,6 +27,27 @@ const UserPage = () => {
 
   };
 
+
+  const [products, setProducts] = useState([]);
+  const userId = localStorage.getItem("user_id"); 
+
+  useEffect(() => {
+    // Fetch user's products when the component mounts
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3301/user-products/${userId}`);
+        setProducts(response.data);
+        console.log("Products fetched");
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, [userId]);
+
+
   return (
     <div className="user-page">
       <div className="banner">
@@ -39,10 +62,13 @@ const UserPage = () => {
         <button className='editInfo-buttom'>
           <img src={EditIcon}/>Edit Profile
         </button>
-      <Link to="/venda">
-        <button className='add-procut-button'>Adicionar produto</button>
-      </Link>
+
+        {/* Adicionar produtos */}
+        <Link to="/venda">
+          <button className='add-product-button'>Adicionar produto</button>
+        </Link>
       </div>
+
       <div className="user-info">
         <div className="user-description">
           <h2 className="store-name">Sobre {user.name}</h2>
@@ -50,7 +76,9 @@ const UserPage = () => {
         </div>
         <div className="user-store">
           <h2 className="store-name">Produtos de {user.name}</h2>
-          <Products query={'random'} itemsPerPage={15} pageNumber={1} byCategory={false}/>
+          <Products/>
+            
+
         </div>
       </div>
     </div>

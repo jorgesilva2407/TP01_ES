@@ -21,7 +21,7 @@ function Validation(values) {
     }
 
     if (values.category === "") {
-      error.category = "O nome do produto é obrigatório.";
+      error.category = "A categoria do produto é obrigatória.";
     }
     else {
       error.category = ""

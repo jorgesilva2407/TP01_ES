@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import Validation from "./VendaValidation";
+import Header from './Header';
 
 import '../styles/Venda.css';
 
@@ -89,7 +90,7 @@ const categories = [
     && errors.quantity === "") {
       
       // Assuming you have an endpoint for posting product announcements
-      axios.post('http://localhost:3301/announce-product', values
+      axios.post('http://localhost:3301/user-products', values
       )
         .then(res => {
           // Handle successful product announcement
@@ -107,10 +108,17 @@ const categories = [
   };
 
   return (
+
+    <div>
+    <Header />
+    
     <div className="venda-page">
+      
+      
+
       <div className="venda-box">
         <h2>Anuncie seu Produto</h2>
-        <form action="" onSubmit={handleSubmit}>
+        <form className="venda-form" action="" onSubmit={handleSubmit}>
           
           <div className="input-section">
             <label htmlFor="product_name"><strong>Nome do Produto</strong></label>
@@ -162,6 +170,7 @@ const categories = [
         
         </form>
       </div>
+    </div>
     </div>
   );
 }

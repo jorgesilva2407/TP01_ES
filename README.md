@@ -33,16 +33,16 @@ Em resumo, o sistema visa proporcionar um espaço onde os usuários podem colabo
 ###  0: Configuração Inicial:
 
 - [x] Criar uma estrutura de projeto.
-- [ ] Configurar o banco de dados.
+- [x] Configurar o banco de dados.
 
 ###  1: Autenticação de Usuário
 
 - [x] Criar uma página de registro com formulário.
-- [ ] Implementar a funcionalidade de criação de conta.
+- [x] Implementar a funcionalidade de criação de conta.
 - [x] Adicionar validações para garantir a integridade dos dados.
 - [x] Criar uma página de login com formulário.
-- [ ] Implementar a funcionalidade de login.
-- [ ] Implementar a funcionalidade de logout.
+- [x] Implementar a funcionalidade de login.
+- [x] Implementar a funcionalidade de logout.
 
 ### 2: Compras de Produtos
 
