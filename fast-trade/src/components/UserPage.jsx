@@ -3,11 +3,15 @@ import '../styles/UserPage.css';
 import DefaultUserBanner from "../images/UserBanner2.png";
 import EditIcon from "../icons/icons8-editar-32.png";
 import Products from './Products';
+import axios from 'axios';
 
 const UserPage = ( {userId} ) => {
+
   function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
+
+  console.log(userId);
 
   const [user, setUser] = useState({
     name: localStorage.getItem("name"),
@@ -25,6 +29,7 @@ const UserPage = ( {userId} ) => {
         const response = await fetch(`http://localhost:3301/user/${userId}`).then(response => response.json());
         const userData = response.user[0];
         // console.log(response);
+        console.log("User data fetched");
         setUser(userData); // Update the user state with the fetched data
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -33,6 +38,26 @@ const UserPage = ( {userId} ) => {
 
     fetchUser(); // Call the async function
   }, [userId]);
+
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    // Fetch user's products when the component mounts
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3301/user-products/${userId}`);
+        setProducts(response.data);
+        console.log("Products fetched");
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, [userId]);
+
 
   return (
     <div className="user-page">
