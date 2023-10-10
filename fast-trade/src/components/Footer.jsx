@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/Footer.css'
 import Instagram from "../icons/icons8-instagram-50.png";
 import Facebook from "../icons/icons8-facebook-50.png";
 import Twitter from "../icons/icons8-twitter-50.png";
 import Linkedin from "../icons/icons8-linkedin-50.png";
 import Vasco from "../icons/icons8-vasco.png";
+import {Link} from 'react-scroll';
+import AppContext from '../context/AppContext';
 
 const Footer = () => {
+  const { setCategory } = useContext(AppContext);
+
   return (
     <div className="footer-container">
       <div className="footer-columns">
@@ -14,7 +18,7 @@ const Footer = () => {
           <h3>Marketplace</h3>
           <ul>
             <li>
-              <a href='/maisprocurados'>Explore</a>
+              <Link to="products" spy={true} smooth={true} offset={50} duration={500}>Explore</Link>
             </li>
             <li>
               <a href='/venda'>Venda</a>
@@ -34,22 +38,19 @@ const Footer = () => {
           <h3>Departamentos</h3>
           <ul>
             <li>
-              <a>Eletrônicos</a>
+              <Link to="products" spy={true} smooth={true} offset={50} duration={500} onClick={() => setCategory("MLB1000")}>Eletrônicos</Link>
             </li>
             <li>
-              <a>Eletrodomesticos</a>
+              <Link to="products" spy={true} smooth={true} offset={50} duration={500} onClick={() => setCategory("MLB5726")}>Eletrodomesticos</Link>
             </li>
             <li>
-              <a>Celulares</a>
+              <Link to="products" spy={true} smooth={true} offset={50} duration={500} onClick={() => setCategory("MLB1051")}>Celulares</Link>
             </li>
             <li>
-              <a>Peças de automóveis</a>
+              <Link to="products" spy={true} smooth={true} offset={50} duration={500} onClick={() => setCategory("MLB1743")}>Carros e Motos</Link>
             </li>
             <li>
-              <a>Items para cozinha</a>
-            </li>
-            <li>
-              <a>Serviços</a>
+              <Link to="products" spy={true} smooth={true} offset={50} duration={500} onClick={() => setCategory("MLB1574")}>Casa e Decoração</Link>
             </li>
           </ul>
         </div>

@@ -8,6 +8,10 @@ function Provider({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isCartVisible, setIsCartVisible] = useState(false);
+  const [category, setCategory] = useState("MLB1051");
+  const [query, setQuery] = useState("");
+  const [categories, setCategories] = useState([]);
+  const [categoryDict, setCategoryDict] = useState([]);
 
   const value = {
     products,
@@ -18,6 +22,14 @@ function Provider({ children }) {
     setCartItems,
     isCartVisible,
     setIsCartVisible,
+    category,
+    setCategory,
+    query,
+    setQuery,
+    categories, 
+    setCategories,
+    categoryDict,
+    setCategoryDict
   };
 
   return (

@@ -9,6 +9,7 @@
     overflow-y: hidden;
     justify-content: space-around; /* Center the grid items horizontally */
     align-content: start; /* Align items to the top of each row */
+    position: relative;
 }
 
 .item-card {
@@ -44,4 +45,5 @@
 
 .container {
     height: auto;
+    padding-top: 64px;
 }

@@ -23,12 +23,9 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/register' element={<Register/>} />
           <Route path="/login" element={<Login/>} />
-          <Route path="/minhaconta" element={<UserAccount/>} />
+          <Route path="/user/:id" element={<UserAccount />} />
           <Route path="/chat" element={<Chat/>} />
-
           <Route path="/venda" element={<Venda/>} />
-          
-
           <Route path='/checkout' element={<Checkout/>}/>
           <Route path='/order-confirmation' element={<OrderConfirmation/>}/>
 
