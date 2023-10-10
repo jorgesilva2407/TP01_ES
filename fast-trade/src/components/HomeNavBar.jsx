@@ -45,7 +45,7 @@ const Navbar = () =>  {
           </li>
 
           <li className="nav-item">
-            <button onClick={() => handleButtonClick('/minhaconta')} className="nav-a">
+            <button onClick={() => handleButtonClick(`user/${localStorage.getItem('user_id')}`)} className="nav-a">
               <img src={Sell} alt="Sell" />
             </button>
           </li>
