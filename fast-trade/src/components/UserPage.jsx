@@ -46,6 +46,7 @@ const UserPage = (userId) => {
           <span className='user-username'>{user.username}</span>
         </div>
       </div>
+
       <div className="user-info">
         <div className="user-description">
           <h2 className="store-name">Sobre {user.name}</h2>

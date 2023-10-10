@@ -72,7 +72,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-app.post('/announce-product', (req, res) => {
+app.post('/user-products/', (req, res) => {
 
   console.log('Requisição de anúncio recebida');
 
@@ -136,6 +136,23 @@ app.get('/user/:id', async (req, res) => {
     // data.profilepic = `data:${data.profilepic};base64,${data.profilepic.toString('base64')}`
     // data.banner = `data:${data.banner};base64,${data.banner.toString('base64')}`
     return res.status(200).json({ user: data });
+  });
+});
+
+app.get('/user-products/:userId', (req, res) => {
+  const userId = req.params.userId;
+
+  const sql = "SELECT * FROM products WHERE product_owner_id = ?";
+  const values = [userId];
+
+  db.query(sql, values, (err, data) => {
+    if (err) {
+      console.error("Error fetching products:", err);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+
+    console.log("Products fetched successfully");
+    return res.status(200).json(data);
   });
 });
 
