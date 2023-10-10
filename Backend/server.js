@@ -91,6 +91,53 @@ app.post('/announce-product', (req, res) => {
 
 });
 
+app.put('/update-user/:userId', (req, res) => {
+  const userId = req.params.userId;
+  const { name, email, username, banner, profilepic, phonenumber, description } = req.body;
+
+  const sql = "UPDATE users SET `name` = ?, `email` = ?, `username` = ?, `banner` = ?, `profilepic` = ?, `phonenumber` = ?, `description` = ? WHERE `user_id` = ?";
+  const values = [name, email, username, banner, profilepic, phonenumber, description, userId];
+
+  db.query(sql, values, (err, data) => {
+    if (err) {
+      console.error("Erro ao atualizar usuário:", err);
+      return res.status(500).json({ error: "Erro interno do servidor" });
+    }
+
+    if (data.affectedRows === 0) {
+      // If no rows were affected, the user with the given ID was not found
+      return res.status(404).json({ error: "Usuário não encontrado" });
+    }
+
+    console.log("Usuário atualizado com sucesso");
+    return res.status(200).json({ message: "Usuário atualizado com sucesso" });
+  });
+});
+
+
+app.get('/user/:id', async (req, res) => {
+  const id = req.params.id;
+
+  const sql = `SELECT * FROM users WHERE user_id = ${id} LIMIT 1`;
+
+  db.query(sql, (err, data) => {
+    if (err) {
+      console.error("Erro ao encontrar informações do usuário:", err);
+      return res.status(500).json({ error: "Erro interno do servidor" });
+    }
+  
+    if (data.length === 0) {
+      console.log("Usuário não encontrado");
+      return res.status(404).json({ error: "Usuário não encontrado" });
+    }
+  
+    console.log("Usuário encontrado");
+    console.log(data);
+    // data.profilepic = `data:${data.profilepic};base64,${data.profilepic.toString('base64')}`
+    // data.banner = `data:${data.banner};base64,${data.banner.toString('base64')}`
+    return res.status(200).json({ user: data });
+  });
+});
 
 
 app.listen(port, () => {

@@ -6,7 +6,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import UserAccount from './components/UserAccount';
 import Chat from './components/Chat';
-
+import UserProfile from './components/UserProfile';
 import Venda from './components/Venda';
 import Checkout from './components/Checkout';
 import OrderConfirmation from './components/OrderConfirmation';
@@ -24,6 +24,7 @@ function App() {
           <Route path='/register' element={<Register/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/user/:id" element={<UserAccount />} />
+          <Route path="/myprofile" element={<UserProfile />} />
           <Route path="/chat" element={<Chat/>} />
           <Route path="/venda" element={<Venda/>} />
           <Route path='/checkout' element={<Checkout/>}/>

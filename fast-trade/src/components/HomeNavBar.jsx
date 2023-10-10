@@ -45,7 +45,7 @@ const Navbar = () =>  {
           </li>
 
           <li className="nav-item">
-            <button onClick={() => handleButtonClick('/minhaconta')} className="nav-a">
+            <button onClick={() => handleButtonClick('/Venda')} className="nav-a">
               <img src={Sell} alt="Sell" />
             </button>
           </li>
@@ -59,7 +59,7 @@ const Navbar = () =>  {
           </li>
 
           <li className="nav-item user">
-            <button onClick={() => handleButtonClick('/profile')} className="nav-a">
+            <button onClick={() => handleButtonClick('/myprofile')} className="nav-a">
               <img src={Profile} alt="Profile" />
             </button>
           </li>

@@ -100,7 +100,7 @@ const categories = [
           console.error("Error announcing product:", err);
         });
 
-        navigate('/minhaconta');
+        navigate('/myprofile');
     }
     else
       console.log("Erro ao adicionar produto")
@@ -152,11 +152,9 @@ const categories = [
 
           <div className="input-section">
             <label htmlFor="image"><strong>Imagem do Produto</strong></label>
-            <input type="file" accept="image/*" name="image" onChange={handleInput} />
+            <input className="image-picker" type="file" accept="image/*" name="image" onChange={handleInput} />
           </div>
 
-
-        
           <button className="submit-button" type="submit">Anunciar Produto</button>
         
         
