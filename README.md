@@ -61,8 +61,8 @@ Em resumo, o sistema visa proporcionar um espaço onde os usuários podem colabo
 
 ### 4: Anúncio de Produtos
 
-- [ ] Criar uma página de anúncio de produtos para vendedores.
-- [ ] Implementar a funcionalidade de criar anúncios de produtos.
+- [x] Criar uma página de anúncio de produtos para vendedores.
+- [x] Implementar a funcionalidade de criar anúncios de produtos.
 
 ### 5: Acompanhamento de Pedidos
 
