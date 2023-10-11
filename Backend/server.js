@@ -132,9 +132,6 @@ app.get('/user/:id', async (req, res) => {
     }
   
     console.log("Usuário encontrado");
-    console.log(data);
-    // data.profilepic = `data:${data.profilepic};base64,${data.profilepic.toString('base64')}`
-    // data.banner = `data:${data.banner};base64,${data.banner.toString('base64')}`
     return res.status(200).json({ user: data });
   });
 });
