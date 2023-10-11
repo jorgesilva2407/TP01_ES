@@ -77,7 +77,6 @@ function Register() {
           .catch(error => {
             console.error('Erro ao adicionar ao chat:', error);
           });
-
         // Step 1: Register the user in the backend
         await axios.post('http://localhost:3301/register', values)
           .then(response => {
@@ -127,9 +126,7 @@ function Register() {
             {errors.password && <span className="text-danger">{errors.password}</span>}
           </div>
 
-          <Link to="/login">
-            <button className="register-button" type="submit">Criar conta</button>
-          </Link>
+          <button className="register-button" type="submit">Criar conta</button>
 
           <p>Já tem uma conta? </p>
 
