@@ -29,8 +29,8 @@ app.post("/register", (req, res) => {
 
   console.log('Requisição de registro recebida');
 
-  const sql = "INSERT INTO users (`name`, `email`, `password`) VALUES (?, ?, ?)";
-  const values = [req.body.name, req.body.email, req.body.password];
+  const sql = "INSERT INTO users (`name`, `email`, `password`, `username`) VALUES (?, ?, ?, ?)";
+  const values = [req.body.name, req.body.email, req.body.password, req.body.username];
 
   db.query(sql, values, (err, data) => {
     if (err) {

@@ -68,6 +68,9 @@ const Navbar = () =>  {
             <li className="nav-item">
               <button onClick={() => {
                 localStorage.removeItem('user_id');
+                localStorage.removeItem('name');
+                localStorage.removeItem('email');
+                localStorage.removeItem('password');
                 navigate('/')
               }} className="nav-a">Logout</button>
             </li>

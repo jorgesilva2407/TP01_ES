@@ -9,7 +9,8 @@ function Register() {
   const [values, setValues] = useState({
     name: '',
     email: '',
-    password: ''
+    password: '',
+    username:''
   });
 
   const [errors, setErrors] = useState({});
@@ -22,18 +23,22 @@ function Register() {
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
+    console.log("submited");
     event.preventDefault();
     setErrors(Validation(values));
+    
 
     if (errors.email === "" && errors.name === "" && errors.password === "") {
 
       const username = values.name;
       const secret = values.password;
       const email = values.email;
-      const first_name = '';
-      const last_name = '';
+      // const first_name = '';
+      // const last_name = '';
 
       try {
+
+  
         fetch('https://api.chatengine.io/users/', {
           method: 'POST',
           headers: {
@@ -82,6 +87,7 @@ function Register() {
         await axios.post('http://localhost:3301/register', values)
           .then(response => {
             // If everything is successful, navigate to the login page
+            console.log("Usuario registrado")
             navigate('/login');
           })
           .catch(err => {
@@ -89,6 +95,7 @@ function Register() {
           });
 
       } catch (error) {
+
         if (error.response && error.response.status === 500) {
           // Handle specific error status (e.g., email already used)
           setBackendError("Email already used. Please choose another email.");
@@ -115,6 +122,12 @@ function Register() {
           </div>
 
           <div className="input-section">
+            <label htmlFor="username"><strong>Nome de usuário</strong></label>
+            <input className="input-box" type="username" placeholder="Digite seu nome de usuário" name="username" onChange={handleInput} />
+            
+          </div>
+
+          <div className="input-section">
             <label htmlFor="email"><strong>Email</strong></label>
             <input className="input-box" type="email" placeholder="Digite seu email" name="email" onChange={handleInput} />
             {errors.email && <span className="text-danger">{errors.email}</span>}
@@ -127,15 +140,16 @@ function Register() {
             {errors.password && <span className="text-danger">{errors.password}</span>}
           </div>
 
-          <Link to="/login">
-            <button className="register-button" type="submit">Criar conta</button>
-          </Link>
+          
+          <button className="register-button" type="submit">Criar conta</button>
+          
 
           <p>Já tem uma conta? </p>
 
           <Link to="/login">
             <button className="register-button">Login</button>
           </Link>
+          
         </form>
       </div>
     </div>
